@@ -18,8 +18,8 @@ const data = {
   products: [
     {
       // _id: '1',
-      name: 'Nike Slim shirt',
-      slug: 'nike-slim-shirt',
+      name: 'Arduino Uno',
+      slug: 'Arduino Uno',
       category: 'Shirts',
       image: '/images/p1.jpg', // 679px × 829px
       price: 120,

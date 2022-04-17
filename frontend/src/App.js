@@ -23,7 +23,7 @@ import ProfileScreen from './screens/ProfileScreen';
 import Button from 'react-bootstrap/Button';
 import { getError } from './utils';
 import axios from 'axios';
-import SearchBox from './components/SearchBox';
+// import SearchBox from './components/SearchBox';
 import SearchScreen from './screens/SearchScreen';
 import ProtectedRoute from './components/ProtectedRoute';
 import DashboardScreen from './screens/DashboardScreen';
@@ -75,30 +75,42 @@ function App() {
       >
         <ToastContainer position="bottom-center" limit={1} />
         <header>
-          <Navbar bg="dark" variant="dark" expand="lg">
+          <Navbar>
             <Container>
-              <Button
-                variant="dark"
+              {/*  <Button
+                variant="dark"nn
                 onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
               >
                 <i className="fas fa-bars"></i>
               </Button>
-
+ */}
               <LinkContainer to="/">
-                <Navbar.Brand>amazona</Navbar.Brand>
+                <Navbar.Brand>
+                  <img src="\images\left.png" alt="logo" />
+                  <img className="word" src="\images\word.png" alt="word" />
+                </Navbar.Brand>
               </LinkContainer>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
-                <SearchBox />
+                {/* <SearchBox /> */}
                 <Nav className="me-auto  w-100  justify-content-end">
-                  <Link to="/cart" className="nav-link">
-                    Cart
-                    {cart.cartItems.length > 0 && (
-                      <Badge pill bg="danger">
-                        {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
-                      </Badge>
-                    )}
-                  </Link>
+                  <div className="Cart">
+                    <Link to="/cart" className="nav-link-cart">
+                      <i className="fas fa-shopping-cart"></i>
+                      Cart
+                      {cart.cartItems.length > 0 && (
+                        <Badge pill bg="danger">
+                          {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+                        </Badge>
+                      )}
+                    </Link>
+                  </div>
+                  <div className="Home">
+                    <Link to="/" className="nav-link-home">
+                      <i className="fas fa-home"></i>
+                      Home
+                    </Link>
+                  </div>
                   {userInfo ? (
                     <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
                       <LinkContainer to="/profile">
@@ -150,9 +162,9 @@ function App() {
           }
         >
           <Nav className="flex-column text-white w-100 p-2">
-            <Nav.Item>
+            {/* <Nav.Item>
               <strong>Categories</strong>
-            </Nav.Item>
+            </Nav.Item> */}
             {categories.map((category) => (
               <Nav.Item key={category}>
                 <LinkContainer
@@ -266,7 +278,37 @@ function App() {
           </Container>
         </main>
         <footer>
-          <div className="text-center">All rights reserved</div>
+          <div className="Electrocity">
+            <h2>ELECTROCITY</h2>
+            <Link to="/" id="About">
+              About Us
+            </Link>
+            <Link to="/" id="Team">
+              Our Team
+            </Link>
+            <Link to="/" id="Partnership">
+              Partnership
+            </Link>
+            <Link to="/" id="Contact">
+              Contact Us
+            </Link>
+            <Link to="/" id="Follow">
+              Follow Us
+            </Link>
+          </div>
+
+          <div className="Right">
+            <h2 id="RegulationHeader">REGULATION</h2>
+            <Link to="/" id="Order">
+              Order Guidelines
+            </Link>
+            <Link to="/" id="Warranty">
+              Warranty and Return Policy
+            </Link>
+            <Link to="/" id="Privacy">
+              Privacy Policy
+            </Link>
+          </div>
         </footer>
       </div>
     </BrowserRouter>
